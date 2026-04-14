@@ -10,23 +10,20 @@ public class SubscriptionMapper {
 
     public Subscription mapToEntity(SubscriptionRequestDto requestDto) {
         Subscription subscription = new Subscription();
-
-        subscription.setName(requestDto.getName());
-        subscription.setPrice(requestDto.getPrice());
-        subscription.setRenewalDate(requestDto.getRenewalDate());
-        subscription.setCategory(requestDto.getCategory());
-
+        subscription.setName(requestDto.name());
+        subscription.setPrice(requestDto.price());
+        subscription.setRenewalDate(requestDto.renewalDate());
+        subscription.setCategory(requestDto.category());
         return subscription;
     }
 
     public SubscriptionResponseDto mapToDto(Subscription subscription) {
-        SubscriptionResponseDto responseDto = new SubscriptionResponseDto();
-
-        responseDto.setName(subscription.getName());
-        responseDto.setPrice(subscription.getPrice());
-        responseDto.setRenewalDate(subscription.getRenewalDate());
-        responseDto.setCategory(subscription.getCategory());
-
-        return responseDto;
+        return new SubscriptionResponseDto(
+                subscription.getId(),
+                subscription.getName(),
+                subscription.getPrice(),
+                subscription.getRenewalDate(),
+                subscription.getCategory()
+        );
     }
 }
