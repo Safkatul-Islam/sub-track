@@ -1,20 +1,12 @@
 package com.backendev.subscription_tracker.entity;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Entity
-@Table(name = "categories")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String name;
+public enum Category {
+    STREAMING,
+    MUSIC,
+    FITNESS,
+    SOFTWARE,
+    SHOPPING,
+    NEWS,
+    GAMING,
+    OTHER
 }
