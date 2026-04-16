@@ -39,4 +39,11 @@ public class GlobalExceptionHandler {
         problem.setTitle("Subscription Not Found");
         return problem;
     }
+
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ProblemDetail handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
+        ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+        problem.setTitle("User Already Exists");
+        return problem;
+    }
 }
